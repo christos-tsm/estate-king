@@ -2,172 +2,157 @@
 
     <x-page-header title="{{ __('Team members') }}" text="{{ __('Manage your team members') }}" />
 
-    <div class="panel panel-default">
+    <div class="teams__header">
+
+        <h3>Members of team <span>{{ $team->name }}</span></h3>
+
+        <a href="{{ route('teams.index') }}" class="button button__primary button__teams">
+
+            Back
+
+        </a>
+
+    </div>
+
+    <div class="teams__table table__container">
+
+        @foreach ($team->users as $team_member)
+            <div class="table__row">
+
+                <div class="table__row--cel">
+
+                    <div class="user-info__avatar teams__avatar">
+
+                        <img class="avatar"
+                            src="{{ $team_member->avatar_url ? asset('storage/' . $team_member->avatar_url) : asset('/images/no-image.png') }}"
+                            alt="{{ $team_member->first_name . ' ' . $team_member->last_name }}" />
+
+                    </div>
+
+                    <div class="table__inner-col">
+
+                        <h3 class="teams__label-name">{{ $team_member->first_name . ' ' . $team_member->last_name }}
+                        </h3>
+
+                        <p class="teams__label-email">{{ $team_member->email }}</p>
+
+                    </div>
+
+                </div>
+
+                <div class="table__row--cel">
+
+                    @if (auth()->user()->isOwnerOfTeam($team))
+                        @if (auth()->user()->getKey() !== $team_member->getKey())
+                            <form style="display: inline-block;"
+                                action="{{ route('teams.members.destroy', [$team, $team_member]) }}" method="post">
+
+                                {!! csrf_field() !!}
+
+                                <input type="hidden" name="_method" value="DELETE" />
+
+                                <x-button class="button__danger button__teams">Delete</x-button>
+
+                            </form>
+                        @endif
+                    @endif
+
+                </div>
+
+            </div>
+        @endforeach
+
+    </div>
+
+
+    @if (auth()->user()->isOwnerOfTeam($team))
 
         <div class="teams__header">
 
-            <h3>Members of team <span>{{ $team->name }}</span></h3>
-
-            <a href="{{ route('teams.index') }}" class="button button__primary">
-
-                Back
-
-            </a>
+            <h3>Pending invitations</h3>
 
         </div>
 
-        <div class="panel-body">
+        <div class="table__container">
 
-            <table class="table table-striped">
+            @foreach ($team->invites as $invite)
+                <div class="table__row">
 
-                <thead>
+                    <div class="table__row--cel">
 
-                    <tr>
+                        <h4>{{ $invite->email }}</h4>
 
-                        <th>Name</th>
+                    </div>
 
-                        <th>Action</th>
 
-                    </tr>
+                    <div class="table__row--cel">
 
-                </thead>
+                        <a href="{{ route('teams.members.resend_invite', $invite) }}"
+                            class="button button__primary button__teams">
 
-                @foreach ($team->users as $team_member)
-                    <tr>
+                            Resend invite
 
-                        <td>{{ $team_member->first_name . ' ' . $team_member->last_name }}</td>
+                        </a>
 
-                        <td>
+                    </div>
 
-                            @if (auth()->user()->isOwnerOfTeam($team))
-                                @if (auth()->user()->getKey() !== $team_member->getKey())
-                                    <form style="display: inline-block;"
-                                        action="{{ route('teams.members.destroy', [$team, $team_member]) }}"
-                                        method="post">
+                    <div class="table__row--cel">
 
-                                        {!! csrf_field() !!}
+                        <a href="{{ route('teams.members.deny_invite', $invite) }}"
+                            class="button button__danger button__teams">
 
-                                        <input type="hidden" name="_method" value="DELETE" />
+                            Cancel invite
 
-                                        <x-button class="button__danger">Delete</x-button>
+                        </a>
 
-                                    </form>
-                                @endif
-                            @endif
+                    </div>
 
-                        </td>
 
-                    </tr>
-                @endforeach
-
-            </table>
+                </div>
+            @endforeach
 
         </div>
 
-    </div>
+    @endif
 
-    <div class="panel panel-default">
+    @if (auth()->user()->isOwnerOfTeam($team))
+        <div class="panel panel-default">
 
-        <div class="panel-heading clearfix">Pending invitations</div>
+            <div class="teams__header">
 
-        <div class="panel-body">
+                <h3>Invite to team <span>{{ $team->name }}</span></h3>
 
-            <table class="table table-striped">
+            </div>
 
-                <thead>
-
-                    <tr>
-
-                        <th>E-Mail</th>
-
-                        <th>Action</th>
-
-                    </tr>
-
-                </thead>
-
-                @foreach ($team->invites as $invite)
-                    <tr>
-
-                        <td>{{ $invite->email }}</td>
-
-                        <td>
-
-                            <a href="{{ route('teams.members.resend_invite', $invite) }}"
-                                class="btn btn-sm btn-default">
-
-                                <i class="fa fa-envelope-o"></i> Resend invite
-
-                            </a>
-
-                        </td>
-
-                    </tr>
-                @endforeach
-
-            </table>
-
-        </div>
-
-    </div>
-
-
-    <div class="panel panel-default">
-
-        <div class="panel-heading clearfix">Invite to team "{{ $team->name }}"</div>
-
-        <div class="panel-body">
-
-            <form class="form-horizontal" method="post" action="{{ route('teams.members.invite', $team) }}">
+            <form class="teams__form-horizontal" method="post" action="{{ route('teams.members.invite', $team) }}">
 
                 {!! csrf_field() !!}
 
-                <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+                <div class="input__container {{ $errors->has('email') ? ' has-error' : '' }}">
 
-                    <label class="col-md-4 control-label">E-Mail Address</label>
+                    <label for="email">E-Mail Address</label>
 
+                    <input type="email" name="email" value="{{ old('email') }}">
 
+                    @if ($errors->has('email'))
+                        <span class="help-block">
 
-                    <div class="col-md-6">
+                            <strong>{{ $errors->first('email') }}</strong>
 
-                        <input type="email" class="form-control" name="email" value="{{ old('email') }}">
-
-
-
-                        @if ($errors->has('email'))
-                            <span class="help-block">
-
-                                <strong>{{ $errors->first('email') }}</strong>
-
-                            </span>
-                        @endif
-
-                    </div>
+                        </span>
+                    @endif
 
                 </div>
 
+                <button type="submit" class="button button__primary button__teams">
 
+                    Invite to Team
 
-
-
-                <div class="form-group">
-
-                    <div class="col-md-6 col-md-offset-4">
-
-                        <button type="submit" class="btn btn-primary">
-
-                            <i class="fa fa-btn fa-envelope-o"></i>Invite to Team
-
-                        </button>
-
-                    </div>
-
-                </div>
+                </button>
 
             </form>
 
         </div>
-
-    </div>
+    @endif
 
 </x-app-layout>

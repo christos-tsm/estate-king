@@ -19,7 +19,7 @@
 
             <li class="navigation__links-single">
 
-                <x-nav-link :href="route('teams.index')" :active="request()->routeIs('teams.index')">
+                <x-nav-link :href="route('teams.index')" :active="request()->routeIs('teams.*')">
 
                     <x-icons.agents />
 
