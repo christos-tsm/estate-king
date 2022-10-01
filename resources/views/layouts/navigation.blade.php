@@ -19,11 +19,11 @@
 
             <li class="navigation__links-single">
 
-                <x-nav-link :href="route('agents')" :active="request()->routeIs('agents')">
+                <x-nav-link :href="route('teams.index')" :active="request()->routeIs('teams.index')">
 
                     <x-icons.agents />
 
-                    {{ __('Agents') }}
+                    {{ __('Teams') }}
 
                 </x-nav-link>
 

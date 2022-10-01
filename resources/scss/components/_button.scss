@@ -13,4 +13,9 @@
         background-color: $primary-color;
         color: #fff;
     }
+
+    &__danger {
+        background-color: $red;
+        color: #fff;
+    }
 }

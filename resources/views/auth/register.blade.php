@@ -22,6 +22,9 @@
 
             @csrf
 
+            @if (session('invite_token'))
+                <input type="hidden" name="invitation_token" value="{{ session('invite_token') }}">
+            @endif
             <div class="input__row">
 
                 <!-- Name -->

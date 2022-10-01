@@ -1,0 +1,50 @@
+.table {
+    &__container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__label {
+        padding: 5px 10px;
+        font-size: 15px;
+
+        &-team-name {
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        &-owner {
+            background-color: $primary-color;
+            border-radius: 5px;
+            color: #fff;
+        }
+    }
+
+    &__row {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+        padding: 20px;
+        border-radius: 5px;
+        &--cel {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            min-width: 100px;
+
+            &:last-child {
+                margin-left: auto;
+            }
+        }
+
+        &:nth-child(even) {
+            background-color: #fff;
+        }
+    }
+
+    &__link {
+        color: $primary-color;
+        font-weight: 600;
+        font-size: 15px;
+    }
+}
