@@ -73,9 +73,15 @@
 
         </div>
 
-        <div class="table__container">
+        <div class="table__container table__pending-invitations">
 
-            @foreach ($team->invites as $invite)
+            @php
+                
+                $invites = $team->invites;
+                
+            @endphp
+
+            @foreach ($invites as $invite)
                 <div class="table__row">
 
                     <div class="table__row--cel">
@@ -106,7 +112,6 @@
                         </a>
 
                     </div>
-
 
                 </div>
             @endforeach

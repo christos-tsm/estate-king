@@ -6,6 +6,12 @@ window.onload = () => {
             previewFile();
         });
     }
+
+    if (document.querySelector(".table__pending-invitations")) {
+        const _ = document.querySelector(".table__pending-invitations");
+        if (_.firstElementChild === null)
+            _.previousSibling.previousSibling.remove();
+    }
 };
 
 // Helper functions
