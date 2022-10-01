@@ -1,0 +1,54 @@
+.aside {
+    &__container {
+        width: 300px;
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+    }
+
+    &__logo {
+        &--container {
+            padding: 20px;
+            & > a {
+                display: flex;
+                justify-content: center;
+            }
+        }
+    }
+
+    &__logout {
+        & > button {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            cursor: pointer;
+            transition: all ease-in-out 250ms;
+            background-color: transparent;
+            outline: none;
+            border: none;
+            margin: 10px 0;
+            color: $black;
+            width: 100%;
+            svg {
+                path {
+                    transition: all ease-in-out 250ms;
+                }
+            }
+            &:hover {
+                color: $primary-color;
+
+                svg {
+                    path {
+                        fill: $primary-color;
+                    }
+                }
+            }
+        }
+
+        &--container {
+            margin: auto 0 0 0;
+            padding: 20px 0;
+            border-top: 1px solid $l_gray;
+        }
+    }
+}

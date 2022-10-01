@@ -1,0 +1,51 @@
+.navigation {
+    &__links {
+        margin: 0 0 0 30px;
+        &-single {
+            &:first-child {
+                > a {
+                    border-top-left-radius: 10px;
+                }
+            }
+
+            &:last-child {
+                > a {
+                    border-bottom-left-radius: 10px;
+                }
+            }
+
+            button,
+            & > a {
+                display: flex;
+                align-items: center;
+                gap: 15px;
+                padding: 20px;
+                transition: all ease-in-out 250ms;
+
+                svg {
+                    path {
+                        transition: all ease-in-out 250ms;
+                    }
+                }
+                &:hover {
+                    background-color: $l_gray_bg;
+                    color: $primary-color;
+                    svg {
+                        path {
+                            fill: $primary-color;
+                        }
+                    }
+                }
+            }
+            .link--active {
+                background-color: $l_gray_bg;
+                color: $primary-color;
+                svg {
+                    path {
+                        fill: $primary-color;
+                    }
+                }
+            }
+        }
+    }
+}

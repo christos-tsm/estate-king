@@ -1,0 +1,96 @@
+.input {
+    &__container {
+        display: flex;
+        flex-direction: column;
+
+        input {
+            padding: 10px;
+            width: 100%;
+            border-radius: 5px;
+            border: none;
+            outline: none;
+            margin: 10px 0 30px;
+            border: 1px solid $l_gray;
+            transition: all ease-in-out 250ms;
+
+            &:focus {
+                border-color: $primary-color;
+            }
+        }
+
+        input:-webkit-autofill,
+        input:-webkit-autofill:hover,
+        input:-webkit-autofill:focus,
+        input:-webkit-autofill:active {
+            -webkit-box-shadow: 0 0 0 30px white inset !important;
+        }
+    }
+
+    &__remember--container {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin: 0 0 20px;
+        label {
+            user-select: none;
+            cursor: pointer;
+        }
+        input {
+            width: 15px;
+            height: 15px;
+            border: 1px solid $primary-color;
+            accent-color: $black;
+        }
+    }
+
+    &__row {
+        display: flex;
+        gap: 20px;
+        & > .input__container {
+            flex: 1;
+        }
+    }
+
+    &__avatar--container {
+        img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+        }
+    }
+}
+
+.auth__form {
+    min-width: 350px;
+}
+
+.link {
+    font-size: 14px;
+
+    &__auth {
+        color: $primary-color;
+    }
+}
+
+.auth-intro-text__container {
+    max-width: 350px;
+    margin-bottom: 20px;
+    p {
+        line-height: 25px;
+        font-size: 16px;
+    }
+
+    a {
+        font-size: 16px;
+    }
+}
+
+input[type="file"]::file-selector-button {
+    border: none;
+    color: #fff;
+    background-color: $primary-color;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-family: "CeraGR";
+    cursor: pointer;
+}

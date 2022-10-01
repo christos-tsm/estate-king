@@ -1,0 +1,77 @@
+@font-face {
+    font-family: CeraGR;
+    src: url("./font/CeraGR.ttf");
+}
+
+@font-face {
+    font-family: CeraGR-light;
+    src: url("./font/CeraGR-Light.ttf");
+}
+
+@font-face {
+    font-family: CeraGR-bold;
+    src: url("./font/CeraGR-Bold.ttf");
+}
+
+@font-face {
+    font-family: CeraGR-black;
+    src: url("./font/CeraGR-Black.ttf");
+}
+
+/*
+* Import colors
+*/
+@import "./variables/colors";
+
+/*
+* Resets
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "CeraGR", system-ui, -apple-system;
+    color: $black;
+}
+
+input {
+    font-family: "CeraGR", system-ui, -apple-system;
+    color: $black;
+    font-size: 15px;
+}
+
+input[type="password"] {
+    letter-spacing: 5px;
+}
+
+ul,
+ol {
+    list-style-type: none;
+}
+
+a {
+    color: $black;
+
+    text-decoration: none;
+}
+
+/*
+* Import layouts styles
+*/
+@import "./layouts/app-layout";
+@import "./layouts/sidebar";
+
+/*
+* Import component styles
+*/
+@import "./components/navigation";
+@import "./components/user-info";
+@import "./components/auth-card";
+@import "./components/button";
+@import "./components/forms";
+@import "./components/messages";
+@import "./components/page-header";

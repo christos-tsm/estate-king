@@ -1,0 +1,37 @@
+.user-info {
+    &__container {
+        display: flex;
+        gap: 10px;
+        border-top: 1px solid $l_gray;
+        border-bottom: 1px solid $l_gray;
+        padding: 20px 0;
+        margin: 30px;
+    }
+
+    &__avatar {
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        border: 1px solid $primary-color;
+        overflow: hidden;
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    &__name {
+        font-size: 16px;
+        line-height: 20px;
+        font-weight: 400;
+    }
+
+    &__email {
+        font-size: 14px;
+        color: $l_gray_txt;
+        line-height: 20px;
+        font-family: "CeraGR-light";
+        font-weight: 100;
+    }
+}

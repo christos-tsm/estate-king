@@ -1,0 +1,13 @@
+.layout__app {
+    &-container {
+        display: flex;
+    }
+
+    &-main {
+        height: 100vh;
+        overflow-y: scroll;
+        flex: 1;
+        padding: 20px;
+        background-color: $l_gray_bg;
+    }
+}

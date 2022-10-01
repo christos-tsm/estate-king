@@ -1,0 +1,16 @@
+.page-header {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 50px;
+
+    &__title {
+        font-weight: 100;
+    }
+
+    &__description {
+        font-family: "CeraGR-light";
+        font-weight: 100;
+        font-size: 15px;
+    }
+}
