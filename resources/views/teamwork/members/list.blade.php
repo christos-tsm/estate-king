@@ -121,43 +121,42 @@
     @endif
 
     @if (auth()->user()->isOwnerOfTeam($team))
-        <div class="panel panel-default">
 
-            <div class="teams__header">
 
-                <h3>Invite to team <span>{{ $team->name }}</span></h3>
+        <div class="teams__header">
+
+            <h3>Invite to team <span>{{ $team->name }}</span></h3>
+
+        </div>
+
+        <form class="teams__form-horizontal" method="post" action="{{ route('teams.members.invite', $team) }}">
+
+            {!! csrf_field() !!}
+
+            <div class="input__container {{ $errors->has('email') ? ' has-error' : '' }}">
+
+                <label for="email">E-Mail Address</label>
+
+                <input type="email" name="email" value="{{ old('email') }}">
+
+                @if ($errors->has('email'))
+                    <span class="help-block">
+
+                        <strong>{{ $errors->first('email') }}</strong>
+
+                    </span>
+                @endif
 
             </div>
 
-            <form class="teams__form-horizontal" method="post" action="{{ route('teams.members.invite', $team) }}">
+            <button type="submit" class="button button__primary button__teams">
 
-                {!! csrf_field() !!}
+                Invite to Team
 
-                <div class="input__container {{ $errors->has('email') ? ' has-error' : '' }}">
+            </button>
 
-                    <label for="email">E-Mail Address</label>
+        </form>
 
-                    <input type="email" name="email" value="{{ old('email') }}">
-
-                    @if ($errors->has('email'))
-                        <span class="help-block">
-
-                            <strong>{{ $errors->first('email') }}</strong>
-
-                        </span>
-                    @endif
-
-                </div>
-
-                <button type="submit" class="button button__primary button__teams">
-
-                    Invite to Team
-
-                </button>
-
-            </form>
-
-        </div>
     @endif
 
 </x-app-layout>

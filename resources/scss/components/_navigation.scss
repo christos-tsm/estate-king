@@ -20,11 +20,11 @@
                 align-items: center;
                 gap: 15px;
                 padding: 20px;
-                transition: all ease-in-out 250ms;
+                transition: background-color, color ease-in-out 250ms;
 
                 svg {
                     path {
-                        transition: all ease-in-out 250ms;
+                        transition: fill ease-in-out 250ms;
                     }
                 }
                 &:hover {
