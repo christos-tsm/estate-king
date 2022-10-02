@@ -23,16 +23,16 @@ class UserController extends Controller
             'last_name' => 'required'
         ]);
 
-
-
         if ($request->hasFile('avatar_url')) {
 
-            $form_fields['avatar_url'] = $request->file('avatar_url')->store('avatars', 'public');
+            $form_fields['avatar'] = $request->file('avatar_url')->store('avatars', 'public');
 
             if ($user->avatar_url) {
                 Storage::disk('public')->delete($user->avatar_url);
             }
         }
+
+        $form_fields['name'] = $request->first_name . ' ' . $request->last_name;
 
         $user->update($form_fields);
 

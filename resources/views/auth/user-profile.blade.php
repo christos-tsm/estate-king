@@ -1,3 +1,10 @@
+@php
+
+$fullname = $user->name;
+
+$fullname = explode(' ', $fullname);
+
+@endphp
 <x-app-layout>
 
     <x-page-header title="{{ __('Profile') }}" text="{{ __('Make changes to your profile') }}" />
@@ -15,7 +22,7 @@
 
                 <label for="first_name">{{ __('First name') }}</label>
 
-                <input id="first_name" type="text" name="first_name" autocomplete="null" value="{{ $user->first_name }}"
+                <input id="first_name" type="text" name="first_name" autocomplete="null" value="{{ $fullname[0] }}"
                     required />
 
                 <x-input-error :messages="$errors->get('first_name')" class="mt-2" />
@@ -27,7 +34,7 @@
 
                 <label for="last_name">{{ __('Last name') }}</label>
 
-                <input id="last_name" type="text" name="last_name" autocomplete="null" value="{{ $user->last_name }}"
+                <input id="last_name" type="text" name="last_name" autocomplete="null" value="{{ $fullname[1] }}"
                     required />
 
                 <x-input-error :messages="$errors->get('last_name')" class="mt-2" />
@@ -43,7 +50,7 @@
             <div class="input__avatar--container">
 
                 <img id="avatar_placeholder"
-                    src="{{ $user->avatar_url ? asset('storage/' . $user->avatar_url) : asset('/images/no-image.png') }}"
+                    src="{{ $user->avatar ? asset('storage/' . $user->avatar) : asset('/images/no-image.png') }}"
                     alt="{{ $user->first_name . ' ' . $user->last_name }}">
 
 
