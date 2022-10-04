@@ -14,6 +14,12 @@
                 }
             }
 
+            svg {
+                path {
+                    transition: fill, stroke ease-in-out 250ms;
+                }
+            }
+
             button,
             & > a {
                 display: flex;
@@ -22,11 +28,6 @@
                 padding: 20px;
                 transition: background-color, color ease-in-out 250ms;
 
-                svg {
-                    path {
-                        transition: fill ease-in-out 250ms;
-                    }
-                }
                 &:hover {
                     background-color: $l_gray_bg;
                     color: $primary-color;
@@ -37,12 +38,34 @@
                     }
                 }
             }
+
             .link--active {
                 background-color: $l_gray_bg;
                 color: $primary-color;
                 svg {
                     path {
                         fill: $primary-color;
+                    }
+                }
+            }
+
+            &--messages .link--active {
+                svg {
+                    path {
+                        fill: transparent !important;
+                        stroke: $primary-color;
+                    }
+                }
+            }
+            &--messages {
+                a {
+                    &:hover {
+                        svg {
+                            path {
+                                fill: transparent !important;
+                                stroke: $primary-color;
+                            }
+                        }
                     }
                 }
             }

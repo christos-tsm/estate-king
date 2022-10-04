@@ -17,6 +17,7 @@
     <div class="teams__table table__container">
 
         @foreach ($team->users as $team_member)
+            {{--  --}}
             <div class="table__row">
 
                 <div class="table__row--cel">
@@ -24,14 +25,14 @@
                     <div class="user-info__avatar teams__avatar">
 
                         <img class="avatar"
-                            src="{{ $team_member->avatar_url ? asset('storage/' . $team_member->avatar_url) : asset('/images/no-image.png') }}"
+                            src="{{ $team_member->avatar ? asset('storage/' . $team_member->avatar) : asset('/images/no-image.png') }}"
                             alt="{{ $team_member->first_name . ' ' . $team_member->last_name }}" />
 
                     </div>
 
                     <div class="table__inner-col">
 
-                        <h3 class="teams__label-name">{{ $team_member->first_name . ' ' . $team_member->last_name }}
+                        <h3 class="teams__label-name">{{ $team_member->name }}
                         </h3>
 
                         <p class="teams__label-email">{{ $team_member->email }}</p>

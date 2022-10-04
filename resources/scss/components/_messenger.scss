@@ -1,0 +1,31 @@
+.messenger {
+    font-family: "CeraGR", system-ui, -apple-system !important;
+    flex-direction: row-reverse;
+
+    &-tab {
+        height: calc(100vh - 167px) !important;
+    }
+
+    &-listView .m-body {
+        margin-top: 125px !important;
+    }
+
+    &-messagingView {
+        background-color: $l_gray_bg !important;
+
+        .m-body {
+            background-color: $l_gray_bg !important;
+        }
+    }
+
+    .m-header-messaging {
+        // background-color: $l_gray_bg !important;
+        border-top-left-radius: 20px;
+    }
+
+    .message-hint span {
+        color: $primary-color;
+        background-color: transparent !important;
+        font-weight: 600;
+    }
+}

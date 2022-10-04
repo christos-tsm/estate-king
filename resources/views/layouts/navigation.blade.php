@@ -29,6 +29,18 @@
 
             </li>
 
+            <li class="navigation__links-single navigation__links-single--messages">
+
+                <x-nav-link :href="route('messages')" :active="request()->routeIs('messages')">
+
+                    <x-icons.messages />
+
+                    {{ __('Messages') }}
+
+                </x-nav-link>
+
+            </li>
+
             <li class="navigation__links-single">
 
                 <x-nav-link :href="route('reports')" :active="request()->routeIs('reports')">
