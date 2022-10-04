@@ -1,18 +1,43 @@
 .messenger {
     font-family: "CeraGR", system-ui, -apple-system !important;
     flex-direction: row-reverse;
+    background-color: transparent !important;
 
     &-tab {
         height: calc(100vh - 167px) !important;
     }
 
-    &-listView .m-body {
-        margin-top: 125px !important;
+    &-listView {
+        .m-body {
+            margin-top: 125px !important;
+        }
+
+        &-tabs a {
+            transition: all ease-in-out 250ms !important;
+
+            svg {
+                transition: all ease-in-out 250ms;
+            }
+
+            &:hover,
+            &:focus {
+                // color: $primary-color !important;
+                background-color: transparent !important;
+                svg {
+                    color: $primary-color;
+                }
+            }
+        }
     }
+
+    // &-messagingView,
+    // .m-header svg {
+    //     color: $black;
+    // }
 
     &-messagingView {
         background-color: $l_gray_bg !important;
-
+        border-top-left-radius: 20px;
         .m-body {
             background-color: $l_gray_bg !important;
         }
@@ -24,7 +49,7 @@
     }
 
     .message-hint span {
-        color: $primary-color;
+        // color: $primary-color;
         background-color: transparent !important;
         font-weight: 600;
     }

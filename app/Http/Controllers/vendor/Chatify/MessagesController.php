@@ -21,7 +21,7 @@ use Illuminate\Support\Str;
 class MessagesController extends Controller
 {
     protected $perPage = 30;
-    protected $messengerFallbackColor = '#2180f3';
+    protected $messengerFallbackColor = '#01c4d4';
 
     /**
      * Authenticate the connection for pusher
@@ -35,7 +35,7 @@ class MessagesController extends Controller
         $authData = json_encode([
             'user_id' => Auth::user()->id,
             'user_info' => [
-                'name' => Auth::user()->first_name
+                'name' => Auth::user()->name
             ]
         ]);
         // check if user authorized

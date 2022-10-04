@@ -8,12 +8,14 @@
             {{-- Header and search bar --}}
             <div class="m-header">
                 <nav>
-                    <a href="#"><i class="fas fa-inbox"></i> <span class="messenger-headTitle">MESSAGES</span> </a>
+                    <a href="#"><i class="fas fa-inbox"></i> <span class="messenger-headTitle">Messages</span> </a>
                     {{-- header buttons --}}
-                    <nav class="m-header-right">
+
+                    {{-- Uncomment to make settings available for colors, dark theme. --}}
+                    {{-- <nav class="m-header-right">
                         <a href="#"><i class="fas fa-cog settings-btn"></i></a>
                         <a href="#" class="listView-x"><i class="fas fa-times"></i></a>
-                    </nav>
+                    </nav> --}}
                 </nav>
                 {{-- Search input --}}
                 <input type="text" class="messenger-search" placeholder="Search" />

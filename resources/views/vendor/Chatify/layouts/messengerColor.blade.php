@@ -1,83 +1,91 @@
+@php
+// Remove this line and uncomment color selections to restore color pick for chat theme config/chatify.php
+$messengerColor = '#01c4d4';
+@endphp
 <style>
     :root {
         --messengerColor: {{ $messengerColor }},
     }
-/* NProgress background */
-#nprogress .bar{
-	background: {{ $messengerColor }} !important;
-}
-#nprogress .peg {
-    box-shadow: 0 0 10px {{ $messengerColor }}, 0 0 5px {{ $messengerColor }} !important;
-}
-#nprogress .spinner-icon {
-  border-top-color: {{ $messengerColor }} !important;
-  border-left-color: {{ $messengerColor }} !important;
-}
 
-.m-header svg{
-    color: {{ $messengerColor }};
-}
+    /* NProgress background */
+    #nprogress .bar {
+        background: {{ $messengerColor }} !important;
+    }
 
-.m-list-active,
-.m-list-active:hover,
-.m-list-active:focus{
-	background: {{ $messengerColor }};
-}
+    #nprogress .peg {
+        box-shadow: 0 0 10px {{ $messengerColor }}, 0 0 5px {{ $messengerColor }} !important;
+    }
 
-.m-list-active b{
-	background: #fff !important;
-	color: {{ $messengerColor }} !important;
-}
+    #nprogress .spinner-icon {
+        border-top-color: {{ $messengerColor }} !important;
+        border-left-color: {{ $messengerColor }} !important;
+    }
 
-.messenger-list-item td b{
-    background: {{ $messengerColor }};
-}
+    .m-header svg {
+        color: {{ $messengerColor }};
+    }
 
-.messenger-infoView nav a{
-    color: {{ $messengerColor }};
-}
+    .m-list-active,
+    .m-list-active:hover,
+    .m-list-active:focus {
+        background: {{ $messengerColor }};
+    }
 
-.messenger-infoView-btns a.default{
-	color: {{ $messengerColor }};
-}
+    .m-list-active b {
+        background: #fff !important;
+        color: {{ $messengerColor }} !important;
+    }
 
-.mc-sender p{
-  background: {{ $messengerColor }};
-}
+    .messenger-list-item td b {
+        background: {{ $messengerColor }};
+    }
 
-.messenger-sendCard button svg{
-    color: {{ $messengerColor }};
-}
+    .messenger-infoView nav a {
+        color: {{ $messengerColor }};
+    }
 
-.messenger-listView-tabs a,
-.messenger-listView-tabs a:hover,
-.messenger-listView-tabs a:focus{
-    color: {{ $messengerColor }};
-}
+    .messenger-infoView-btns a.default {
+        color: {{ $messengerColor }};
+    }
 
-.active-tab{
-	border-bottom: 2px solid {{ $messengerColor }};
-}
+    .mc-sender p {
+        background: {{ $messengerColor }};
+    }
 
-.lastMessageIndicator{
-    color: {{ $messengerColor }} !important;
-}
+    .messenger-sendCard button svg {
+        color: {{ $messengerColor }};
+    }
 
-.messenger-favorites div.avatar{
-    box-shadow: 0px 0px 0px 2px {{ $messengerColor }};
-}
+    .messenger-listView-tabs a,
+    .messenger-listView-tabs a:hover,
+    .messenger-listView-tabs a:focus {
+        color: {{ $messengerColor }};
+    }
 
-.dark-mode-switch{
-    color: {{ $messengerColor }};
-}
-.m-list-active .activeStatus{
-    border-color: {{ $messengerColor }} !important;
-}
+    .active-tab {
+        border-bottom: 2px solid {{ $messengerColor }};
+    }
 
-.messenger [type='text']:focus {
-    outline: 1px solid {{ $messengerColor }};
-    border-color: {{ $messengerColor }} !important;
-    border-color: {{ $messengerColor }};
-    box-shadow: 0 0 2px {{ $messengerColor }};
-}
+    .lastMessageIndicator {
+        color: {{ $messengerColor }} !important;
+    }
+
+    .messenger-favorites div.avatar {
+        box-shadow: 0px 0px 0px 2px {{ $messengerColor }};
+    }
+
+    .dark-mode-switch {
+        color: {{ $messengerColor }};
+    }
+
+    .m-list-active .activeStatus {
+        border-color: {{ $messengerColor }} !important;
+    }
+
+    .messenger [type='text']:focus {
+        outline: 1px solid {{ $messengerColor }};
+        border-color: {{ $messengerColor }} !important;
+        border-color: {{ $messengerColor }};
+        box-shadow: 0 0 2px {{ $messengerColor }};
+    }
 </style>
